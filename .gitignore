@@ -1,0 +1,4 @@
+.bundle
+.sass-cache
+build
+Gemfile.lock

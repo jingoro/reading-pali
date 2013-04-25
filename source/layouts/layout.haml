@@ -1,0 +1,12 @@
+!!! 5
+%html{ :lang => "en" }
+  %head
+    %meta{ :charset => "utf-8" }
+    %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }
+    %title A New Course In Reading Pāli - #{current_page.data.title}
+    = stylesheet_link_tag "all"
+  %body
+    %h1 A New Course In Reading Pāli - #{current_page.data.title}
+    = yield
+    %script{ :src => "https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" }
+    = javascript_include_tag "all"
