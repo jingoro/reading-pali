@@ -7,14 +7,15 @@ paliDict =
   "dutiyaṃ": "second time"
   "pi": "again"
   "tatiyaṃ": "third time"
-  "ti": "\""
+  "ti": '"'
 
   "cittaṃ": "mind"
   "bhikkhave": "o' monks"
   "adantaṃ": "untamed"
   "mahato": "great"
   "anatthāya": "for disadvantage"
-  "saṃvattatī": "leads to him/her/it"
+  "saṃvattati": "leads to him"
+  "saṃvattatī": "leads to him"
   "saṃvattantī": "leads to them"
   "dantaṃ": "tamed"
   "atthāya": "for advantage"
@@ -62,7 +63,7 @@ paliDict =
   "anuppādāya": "for nonarising"
   "uppādāya": "for arising"
   "chandaṃ": "desire"
-  "janeti": "s/he generates"
+  "janeti": "he generates"
   "vāyamati": "he endevours"
   "viriyaṃ": "energy"
   "ārabhati": "he arouses"
@@ -76,15 +77,59 @@ paliDict =
   "bhāvanāya": "for development"
   "pāripūriyā": "for fulfillment"
 
-$('li.p').each (_, li) ->
+  "yo": "that"
+  "saddhammassa": "of true Dhamma"
+  "sammosāya": "for confusion"
+  "antaradhānāya": "for disappearance"
+  "pamādo": "negligence"
+  "appamādo": "diligence"
+  "anantaradhānāya": "for appearance"
+  "kosajjaṃ": "idleness"
+  "viriyārambho": "taking effort"
+  "anuyogo": "practice"
+  "ananuyogo": "not practicing"
+  "purisassa": "of a man"
+  "pariyādāya": "having overpowered"
+  "tiṭṭhati": "remains"
+  "itthiyā": "of a woman"
+  "itthirūpaṃ": "the sight of a woman"
+  "itthisaddo": "the sound of a woman"
+  "itthigandho": "smell of a woman"
+  "itthiraso": "taste of a woman"
+  "itthiphoṭṭhabbaṃ": "touch of a woman"
+  "ekasaddaṃ": "single sound"
+  "ekagandhaṃ": "single smell"
+  "ekarasaṃ": "single taste"
+  "ekaphoṭṭhabbaṃ": "single touch"
+  "ekarūpaṃ": "single form"
+  "purisarūpaṃ": "form of a man"
+  "purisasaddo": "sound of a man"
+  "purisagandho": "smell of a man"
+  "purisaraso": "taste of a man"
+  "purisaphoṭṭhabbaṃ": "touch of a man"
+
+# https://github.com/janl/mustache.js/blob/master/mustache.js#L49
+
+entityMap =
+  "&": "&amp;"
+  "<": "&lt;"
+  ">": "&gt;"
+  '"': '&quot;'
+  "'": '&#39;'
+  "/": '&#x2F;'
+
+escapeHtml = (string) ->
+  String(string).replace /[&<>"'\/]/g, (s) -> entityMap[s]
+
+$('p.p').each (_, li) ->
   li = $(li)
-  html = li.html().split(' ')
+  html = li.html().split(/\s+/)
   result = []
   for word, i in html
-    key = word.replace(/[,.;…]/g, '').toLowerCase()
+    key = word.replace(/[,.;…\s]/g, '').toLowerCase()
     trans = paliDict[key]
     if trans
-      result.push "<span class=\"t\" title=\"#{trans}\">#{word}</span>"
+      result.push "<span class=\"p\" title=\"#{escapeHtml(trans)}\">#{word}</span>"
     else
       result.push "<span class=\"error\">#{word}</span>"
   li.html(result.join(' '))

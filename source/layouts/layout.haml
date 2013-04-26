@@ -6,7 +6,10 @@
     %title A New Course In Reading Pāli - #{current_page.data.title}
     = stylesheet_link_tag "all"
   %body
-    %h1 A New Course In Reading Pāli - #{current_page.data.title}
+    %h1
+      A New Course In Reading Pāli
+      %br
+      #{current_page.data.title}
     = yield
     %script{ :src => "https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" }
     = javascript_include_tag "all"

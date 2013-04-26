@@ -1,14 +1,25 @@
 body
-  margin: 2em
+  width: 600px
+  margin: 0 auto
 
-li.t, li.p
-  list-style-type: none
+p.p
+  margin: 0.5em 0
+  padding: 0
   color: black
-li.t
-  margin-left: 2em
-  font-size: .8em
-  color: gray
-  margin-bottom: 0.5em
 
+p.t
+  margin: 0.5em 0 0 2em
+  padding: 0
+  color: #999
+
+p, h1, h2
+  clear: left
+
+p.t
+  clear: none
+
+
+span.p:hover
+  text-decoration: underline
 span.error
   background-color: red
