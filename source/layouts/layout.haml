@@ -12,4 +12,6 @@
       #{current_page.data.title}
     = yield
     %script{ :src => "https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" }
+    :javascript
+      window.jQuery || document.write('<script src="#{ asset_path :js, 'jquery.js' }"><\/script>')
     = javascript_include_tag "all"
