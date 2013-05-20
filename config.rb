@@ -30,6 +30,10 @@ activate :directory_indexes
 #   page "/admin/*"
 # end
 
+with_layout 'chanting' do
+  page "/chanting/"
+end
+
 # Proxy (fake) files
 # page "/this-page-has-no-template.html", :proxy => "/template-file.html" do
 #   @which_fake_page = "Rendering a fake page with a variable"

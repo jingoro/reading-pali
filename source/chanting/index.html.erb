@@ -1,0 +1,17 @@
+<div id="audio">
+  <audio id="track" controls ontimeupdate="trackTime(this)">
+    <source src="http://media.ejinjue.org/buddhism/C03MorningChanting.ogg" type="audio/ogg">
+    <source src="http://media.ejinjue.org/buddhism/C03MorningChanting.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<div id="time">00:00.0</div>
+
+<ul id="display">
+</ul>
+
+<div id="input">
+<textarea id="data" rows="1" cols="1">
+<%= partial 'text' %>
+</textarea>
+</div>
