@@ -1,3 +1,6 @@
+//= require 'l1'
+//= require 'l2'
+
 # https://github.com/janl/mustache.js/blob/master/mustache.js#L49
 
 entityMap =

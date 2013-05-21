@@ -1,0 +1,10 @@
+- content_for :head do
+  = stylesheet_link_tag 'pali'
+- content_for :foot do
+  = javascript_include_tag 'pali'
+- wrap_layout :layout do
+  %h1
+    A New Course In Reading Pāli
+    %br
+    #{current_page.data.title}
+  = yield

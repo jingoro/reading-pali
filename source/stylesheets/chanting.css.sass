@@ -1,0 +1,110 @@
+@import bootstrap/variables
+@import bootstrap/mixins
+
+body
+  width: 1024px
+  margin: 50px auto 0
+
+#data
+  display: none
+
+#audio
+  width: 1024px
+  height: 30px
+  position: fixed
+  background-color: black
+  z-index: 1000
+  top: 0
+  left: 50%
+  margin-left: -512px
+
+#audio audio
+  width: 100%
+  height: 100%
+  background-color: white
+
+#time
+  display: none
+  font-size: 3em
+  width: 3.3em
+  height: 1em
+  color: green
+  position: fixed
+  z-index: 1000
+  right: 0
+  bottom: 0
+  text-align: right
+  vertical-align: bottom
+  padding: 0.2em
+  border-top: 5px solid green
+  border-left: 5px solid green
+
+ul#display h1, ul#display h2, ul#display h3, ul#display p
+  margin: 0
+  padding: 0
+
+ul#display li
+  list-style-type: none
+  margin: 0.5em 0
+  padding: 0.3em 1em
+  position: relative
+  border-radius: 20px
+  -webkit-transition: background 1.0s linear
+  -moz-transition: background 1.0s linear
+  -ms-transition: background 1.0s linear
+  -o-transition: background 1.0s linear
+  transition: background 1.0s linear
+  cursor: pointer
+  font-size: 36px
+  line-height: 70px
+
+ul#display li.highlight
+  background-color: #dfd
+
+ul#display .time
+  display: none
+  position: absolute
+  top: 2.4em
+  left: -4em
+  width: 3em
+  font-size: 0.5em
+  color: #ccc
+  text-align: right
+
+ul#display p.en
+  margin-left: 1em
+  font-style: italic
+
+ul#display p span.t
+  position: relative
+  white-space: pre
+
+ul#display p span.t span
+  position: absolute
+  width: 0
+  height: 0
+  border-style: solid
+
+ul#display p span.t span.u
+  top: -0.0em
+  left: 0.05em
+  border-width: 0 0.2em 0.15em 0.2em
+  border-color: transparent transparent black transparent
+
+ul#display p span.t span.d
+  top: 1.0em
+  left: 0.05em
+  border-width: 0.15em 0.2em 0 0.2em
+  border-color: black transparent transparent transparent
+
+ul#display p span.t span.uu
+  top: -0.0em
+  left: -0.25em
+  border-width: 0 0.5em 0.2em 0.5em
+  border-color: transparent transparent black transparent
+
+ul#display p span.t span.dd
+  top: 1.1em
+  left: -0.25em
+  border-width: 0.2em 0.5em 0 0.5em
+  border-color: black transparent transparent transparent

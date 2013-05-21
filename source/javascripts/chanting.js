@@ -1,3 +1,4 @@
+//= require bootstrap
 //= require jquery.smooth-scroll
 
 jQuery.fx.interval = 10;

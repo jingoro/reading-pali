@@ -30,6 +30,12 @@ activate :directory_indexes
 #   page "/admin/*"
 # end
 
+with_layout 'pali' do
+  page '/'
+  page '/1/'
+  page '/2/'
+end
+
 with_layout 'chanting' do
   page "/chanting/"
 end

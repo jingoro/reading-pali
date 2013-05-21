@@ -1,14 +1,6 @@
-!!! 5
-%html{ :lang => "en" }
-  %head
-    %meta{ :charset => "utf-8" }
-    %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }
-    %title Chanting - #{current_page.data.title}
-    = stylesheet_link_tag "normalize"
-    = stylesheet_link_tag "chanting"
-  %body
-    = yield
-    %script{ :src => "https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" }
-    :javascript
-      window.jQuery || document.write('<script src="#{ asset_path :js, 'jquery.js' }"><\/script>')
-    = javascript_include_tag "chanting"
+- content_for :head do
+  = stylesheet_link_tag 'chanting'
+- content_for :foot do
+  = javascript_include_tag 'chanting'
+- wrap_layout :layout do
+  = yield
