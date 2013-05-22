@@ -1,1 +1,24 @@
 @import 'bootstrap'
+@import 'bootstrap/responsive'
+
+// Needed to push the navbar down
+@media (min-width: 981px)
+  body
+    padding-top: 60px
+
+body.page-home
+  .hero-unit
+    background-color: #060
+    background: linear-gradient(30deg, rgba(89,165,120,1) 0%, rgba(2,89,45,1) 100%)
+    color: white
+    text-align: center
+  
+  .thumbnail
+    position: relative
+    h2
+      position: absolute
+      bottom: 0
+      right: 1em
+      color: white
+      text-shadow: 1px 1px 4px #040
+

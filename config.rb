@@ -31,13 +31,11 @@ activate :directory_indexes
 # end
 
 with_layout 'pali' do
-  page '/'
-  page '/1/'
-  page '/2/'
+  page '/reading-pali/*'
 end
 
 with_layout 'chanting' do
-  page "/chanting/"
+  page "/chanting/*"
 end
 
 # Proxy (fake) files
@@ -54,6 +52,35 @@ activate :automatic_image_sizes
 
 # Methods defined in the helpers block are available in templates
 helpers do
+
+  SECTIONS = [
+    [ 'home', /^\/$/ ],
+    [ 'chanting', /^\/chanting\// ],
+    [ 'reading-pali', /^\/reading-pali\// ],
+  ]
+
+  def page_section
+    SECTIONS.each do |name, re|
+      if re.match(current_page.url)
+        return name
+      end
+    end
+    'unknown'
+  end
+
+  def page_class
+    "page-#{page_section}"
+  end
+
+  def pali_nav_link(n)
+    if n == :home
+      active = current_page.url == '/reading-pali/' ? 'active' : nil
+      content_tag :li, link_to('Home', "/reading-pali/"), class: active
+    else
+      active = current_page.url == "/reading-pali/#{n}/" ? 'active' : nil
+      content_tag :li, link_to("Lesson #{n}", "/reading-pali/#{n}/"), class: active
+    end
+  end
 
 end
 

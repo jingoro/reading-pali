@@ -1,0 +1,10 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      = link_to 'Dhamma Schtuff', '/', class: 'brand'
+      %ul.nav
+        - [ [ 'Home', '/' ],
+            [ 'Chanting', '/chanting/' ],
+            [ 'Reading Pali', '/reading-pali/' ] ].each do |title, path|
+          - active = title.parameterize == page_section ? 'active' : nil
+          %li{ class: active }= link_to title, path

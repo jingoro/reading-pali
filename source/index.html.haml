@@ -1,32 +1,22 @@
 ---
-title: Home
+title: Dhamma Schtuff Home
 ---
 
-These are translations of the reading exercises in
-<a href="http://www.amazon.com/New-Course-Reading-Pali-Entering/dp/812081441X">A New Course in Reading Pāli</a>
-that I'm working on as a way of learning Pāli.
+.container
 
-%ul
-  %li
-    = link_to 'Lesson 1', '/1/'
-    %ul
-      %li= link_to 'Reading 1', '/1/#r1'
-      %li= link_to 'Reading 2', '/1/#r2'
-      %li= link_to 'Reading 3', '/1/#r3'
-      %li= link_to 'Reading 4', '/1/#r4'
-      %li= link_to 'Further Reading 1', '/1/#fr1'
-      %li= link_to 'Further Reading 2', '/1/#fr2'
-  %li
-    = link_to 'Lesson 2', '/2/'
+  .hero-unit
+    %h1 Dhamma Schtuff
+    %p Because "dhamma" is sometimes just "schtuff"…
 
-%h2 Links
-%ul
-  %li= link_to "Audio Pāli Class by Bhikkhu Bodhi", "http://bodhimonastery.org/a-course-in-the-pali-language.html"
-  %li= link_to "Another Translation of Reading Pāli Exercises", "http://www.tipitaka.net/pali/pali.php?palidd=b01&code=unicode"
-  %li= link_to "Online Pāli Dictionaries", "http://www.multilingualbooks.com/onlinedicts-pali.html"
-  %li= link_to "Pāli - English Translation Tool", "http://theravada.org/translate/"
-  %li= link_to "Pāli - English Dictionary", "http://www.viet.net/anson/ebud/dict-pe/index.htm"
-
-%h2 Special Characters
-
-ā ī ū ḷ ṃ ṇ ṭ ñ
+  .row-fluid
+    %ul.thumbnails
+      %li.span6
+        %a{ href: '/chanting/' }
+          .thumbnail
+            %h2 Chanting
+            = image_tag 'chanting.jpg'
+      %li.span6
+        %a{ href: '/reading-pali/' }
+          .thumbnail
+            %h2 Reading Pāḷi Exercises
+            = image_tag 'pali.jpg'

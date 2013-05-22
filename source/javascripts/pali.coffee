@@ -1,8 +1,8 @@
 //= require 'l1'
 //= require 'l2'
+//= require 'bootstrap'
 
 # https://github.com/janl/mustache.js/blob/master/mustache.js#L49
-
 entityMap =
   "&": "&amp;"
   "<": "&lt;"

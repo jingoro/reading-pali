@@ -3,8 +3,17 @@
 - content_for :foot do
   = javascript_include_tag 'pali'
 - wrap_layout :layout do
-  %h1
-    A New Course In Reading Pāli
-    %br
-    #{current_page.data.title}
-  = yield
+  .container-fluid
+    .row-fluid
+      .span3
+        #sidebar.affix
+          %h3
+            Reading Pāḷi
+            %br
+            Exercises
+          %ul.nav.nav-pills.nav-stacked
+            = pali_nav_link :home
+            = pali_nav_link 1
+            = pali_nav_link 2
+      .span9
+        = yield
