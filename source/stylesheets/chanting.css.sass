@@ -9,19 +9,17 @@ body
   display: none
 
 #audio
-  width: 1024px
+  width: 100%
   height: 30px
   position: fixed
   background-color: black
   z-index: 1000
   bottom: 0
-  left: 50%
-  margin-left: -512px
+  left: 0
 
 #audio audio
   width: 100%
   height: 100%
-  background-color: white
 
 #time
   display: none
@@ -47,7 +45,7 @@ ul#display
   li
     list-style-type: none
     margin: 0.5em 0
-    padding: 0.3em 1em
+    padding: 0.1em 0.5em
     position: relative
     border-radius: 20px
     -webkit-transition: background 1.0s linear
@@ -57,7 +55,7 @@ ul#display
     transition: background 1.0s linear
     cursor: pointer
     font-size: 36px
-    line-height: 70px
+    line-height: 56px
 
     &.highlight
       background-color: #dfd
@@ -99,7 +97,7 @@ ul#display
 
           &.u
             border-width: 0 0.25em 0.15em 0.25em
-            border-color: transparent transparent green transparent
+            border-color: transparent transparent #0d0 transparent
 
           &.d
             margin-top: 1.2em
@@ -108,7 +106,7 @@ ul#display
 
           &.uu
             border-width: 0 0.5em 0.2em 0.5em
-            border-color: transparent transparent green transparent
+            border-color: transparent transparent #0d0 transparent
 
           &.dd
             margin-top: 1.2em
