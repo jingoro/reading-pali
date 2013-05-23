@@ -39,72 +39,78 @@ body
   border-top: 5px solid green
   border-left: 5px solid green
 
-ul#display h1, ul#display h2, ul#display h3, ul#display p
-  margin: 0
-  padding: 0
+ul#display
+  h1, h2, h3, p
+    margin: 0
+    padding: 0
 
-ul#display li
-  list-style-type: none
-  margin: 0.5em 0
-  padding: 0.3em 1em
-  position: relative
-  border-radius: 20px
-  -webkit-transition: background 1.0s linear
-  -moz-transition: background 1.0s linear
-  -ms-transition: background 1.0s linear
-  -o-transition: background 1.0s linear
-  transition: background 1.0s linear
-  cursor: pointer
-  font-size: 36px
-  line-height: 70px
+  li
+    list-style-type: none
+    margin: 0.5em 0
+    padding: 0.3em 1em
+    position: relative
+    border-radius: 20px
+    -webkit-transition: background 1.0s linear
+    -moz-transition: background 1.0s linear
+    -ms-transition: background 1.0s linear
+    -o-transition: background 1.0s linear
+    transition: background 1.0s linear
+    cursor: pointer
+    font-size: 36px
+    line-height: 70px
 
-ul#display li.highlight
-  background-color: #dfd
+    &.highlight
+      background-color: #dfd
 
-ul#display .time
-  display: none
-  position: absolute
-  top: 2.4em
-  left: -4em
-  width: 3em
-  font-size: 0.5em
-  color: #ccc
-  text-align: right
+  .time
+    display: none
+    position: absolute
+    top: 2.4em
+    left: -4em
+    width: 3em
+    font-size: 0.5em
+    color: #ccc
+    text-align: right
 
-ul#display p.en
-  margin-left: 1em
-  font-style: italic
+  p
 
-ul#display p span.t
-  position: relative
-  white-space: pre
+    &.en
+      margin-left: 1em
+      font-style: italic
 
-ul#display p span.t span
-  position: absolute
-  width: 0
-  height: 0
-  border-style: solid
+    span.t
+      position: relative
+      white-space: pre
+  
+      > span
+        display: inline-block
+        position: absolute
+        top: 0
+        left: -100%
+        width: 300%
+        height: 100%
+    
+        > span
+          display: block
+          width: 0
+          height: 0
+          margin: 0 auto
+          border-style: solid
 
-ul#display p span.t span.u
-  top: -0.0em
-  left: 0.05em
-  border-width: 0 0.2em 0.15em 0.2em
-  border-color: transparent transparent black transparent
+          &.u
+            border-width: 0 0.25em 0.15em 0.25em
+            border-color: transparent transparent green transparent
 
-ul#display p span.t span.d
-  top: 1.0em
-  left: 0.05em
-  border-width: 0.15em 0.2em 0 0.2em
-  border-color: black transparent transparent transparent
+          &.d
+            margin-top: 1.2em
+            border-width: 0.15em 0.25em 0 0.25em
+            border-color: blue transparent transparent transparent
 
-ul#display p span.t span.uu
-  top: -0.0em
-  left: -0.25em
-  border-width: 0 0.5em 0.2em 0.5em
-  border-color: transparent transparent black transparent
+          &.uu
+            border-width: 0 0.5em 0.2em 0.5em
+            border-color: transparent transparent green transparent
 
-ul#display p span.t span.dd
-  top: 1.1em
-  left: -0.25em
-  border-width: 0.2em 0.5em 0 0.5em
-  border-color: black transparent transparent transparent
+          &.dd
+            margin-top: 1.2em
+            border-width: 0.2em 0.5em 0 0.5em
+            border-color: blue transparent transparent transparent

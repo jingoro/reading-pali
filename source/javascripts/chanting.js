@@ -60,7 +60,8 @@ function humanToTime(time) {
 }
 
 function vocalize(text) {
-  return text.replace(/((\^|\`)+)/g, function(all, m) {
+  return text.replace(/(([\^`]+)(.))/g, function(t1, t2, m, c) {
+    console.log([m, c]);
     var dir;
     if (m[0] == "^") {
       dir = "u";
@@ -70,7 +71,7 @@ function vocalize(text) {
     if (m.length > 1) {
       dir = dir + dir;
     }
-    return '<span class="t"><span class="' + dir + '">' + '</span></span>';
+    return '<span class="t"><span><span class="' + dir + '"></span></span>' + c + '</span>';
   });
 };
 
