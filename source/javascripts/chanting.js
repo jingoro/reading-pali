@@ -30,7 +30,9 @@ $("#data").val().split(/\n+/).forEach(function (line) {
       } else {
         pclass = "pali";
       }
-      node = $('<li><p class="' + pclass + '">' + vocalize(text) + '</p></li>');
+      text = vocalize(text);
+      text = underline(text);
+      node = $('<li><p class="' + pclass + '">' + text + '</p></li>');
     }
     if (time !== null) {
       var timeNode = $('<div class="time" data-time="' + time + '">' + timeToHuman(time) + '</div>');
@@ -74,6 +76,12 @@ function vocalize(text) {
     return '<span class="t"><span><span class="' + dir + '"></span></span>' + c + '</span>';
   });
 };
+
+function underline(text) {
+  return text.replace(/_(.+?)_/g, function(t1, m) {
+    return '<span class="un">' + m + '</span>';
+  });
+}
 
 function findLineByTime(time) {
   var min = 0, mid = 0, max = timeLineNodes.length;
