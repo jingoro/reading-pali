@@ -4,48 +4,54 @@
 jQuery.fx.interval = 10;
 
 var audio = $("#audio audio")[0];
-var display = $("#display");
+var display;
+var data = $("#data");
 var timeLineNodes = [];
 
-$("#data").val().split(/\n+/).forEach(function (line) {
-  var match = line.match(/^\s*(\[(.+)\])?(\s*)(.+)\s*$/);
-  if (match) {
-    var time   = humanToTime(match[2]),
-        indent = match[3],
-        text   = match[4],
-        node;
-    if (text == "") {
-      console.log("empty");
-      return;
-    } else if (text[0] == "#") {
-      var match = text.match(/^(#+)\s*(.+)$/),
-          depth = match[1].length,
-          text  = match[2];
-      console.log(match);
-      node = $('<li><h' + depth + '>' + text + '</h' + depth + '></li>');
-    } else {
-      var pclass;
-      if (indent.length > 1) {
-        pclass = "en";
+if (data && data.val()) {
+  display = $('<ul id="display"></ul>');
+  $('body').append('<div id="time">00:00.0</div>');
+  $('body').append(display);
+  data.val().split(/\n+/).forEach(function (line) {
+    var match = line.match(/^\s*(\[(.+)\])?(\s*)(.+)\s*$/);
+    if (match) {
+      var time   = humanToTime(match[2]),
+          indent = match[3],
+          text   = match[4],
+          node;
+      if (text == "") {
+        console.log("empty");
+        return;
+      } else if (text[0] == "#") {
+        var match = text.match(/^(#+)\s*(.+)$/),
+            depth = match[1].length,
+            text  = match[2];
+        console.log(match);
+        node = $('<li><h' + depth + '>' + text + '</h' + depth + '></li>');
       } else {
-        pclass = "pali";
+        var pclass;
+        if (indent.length > 1) {
+          pclass = "en";
+        } else {
+          pclass = "pali";
+        }
+        text = vocalize(text);
+        text = underline(text);
+        node = $('<li><p class="' + pclass + '">' + text + '</p></li>');
       }
-      text = vocalize(text);
-      text = underline(text);
-      node = $('<li><p class="' + pclass + '">' + text + '</p></li>');
+      if (time !== null) {
+        var timeNode = $('<div class="time" data-time="' + time + '">' + timeToHuman(time) + '</div>');
+        node.on("click", function(event) {
+          audio.currentTime = time;
+          audio.play();
+        });
+        node.prepend(timeNode);
+        timeLineNodes.push({ time: time, node: node });
+      }
+      display.append(node);
     }
-    if (time !== null) {
-      var timeNode = $('<div class="time" data-time="' + time + '">' + timeToHuman(time) + '</div>');
-      node.on("click", function(event) {
-        audio.currentTime = time;
-        audio.play();
-      });
-      node.prepend(timeNode);
-      timeLineNodes.push({ time: time, node: node });
-    }
-    display.append(node);
-  }
-});
+  });
+}
 
 function timeToHuman(time, digits) {
   return "" + parseInt(time / 60) + ":" + ("0" + (time % 60).toFixed(1)).slice(-4);
