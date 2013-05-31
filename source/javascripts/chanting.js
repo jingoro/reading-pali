@@ -13,7 +13,7 @@ if (data && data.val()) {
   $('body').append('<div id="time">00:00.0</div>');
   $('body').append(display);
   data.val().split(/\n+/).forEach(function (line) {
-    var match = line.match(/^\s*(\[(.+)\])?(\s*)(.+)\s*$/);
+    var match = line.match(/^\s*(\[(.+?)\])?(\s*)(.+)\s*$/);
     if (match) {
       var time   = humanToTime(match[2]),
           indent = match[3],
