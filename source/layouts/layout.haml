@@ -13,7 +13,7 @@
     %meta{ name: 'author', content: 'John Nishinaga' }
     %meta{ name: 'generator', content: "middleman #{Middleman::VERSION}" }
     %meta{ name: 'viewport', content: 'width=device-width' }
-    = stylesheet_link_tag 'global'
+    = stylesheet_link_tag 'global', media: :all
     = yield_content :head
   %body{ class: page_class }
     /[if lt IE 7 ]
