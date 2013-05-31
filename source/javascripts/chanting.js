@@ -79,7 +79,7 @@ function vocalize(text) {
     if (m.length > 1) {
       dir = dir + dir;
     }
-    return '<span class="t"><span><span class="' + dir + '"></span></span>' + c + '</span>';
+    return '<span class="t">' + c + '<span><span class="' + dir + '"></span></span></span>';
   });
 };
 
